@@ -19,7 +19,7 @@ elif sys.version_info[0] == 3:
 
 setuptools.setup(
     name="ai-safety-gridworlds",
-    version="1.2",
+    version="1.5",
     description="A suite of reinforcement learning environments illustrating "
     "various safety properties of intelligent agents.",
     long_description=(
@@ -61,7 +61,7 @@ setuptools.setup(
         "reinforcement learning "
         "retro retrogaming"
     ),
-    install_requires=["pycolab", "numpy>=1.14.5", "absl-py"] + enum,
+    install_requires=["pycolab", "numpy", "absl-py"] + enum,
     packages=setuptools.find_packages(),
     zip_safe=True,
     entry_points={},

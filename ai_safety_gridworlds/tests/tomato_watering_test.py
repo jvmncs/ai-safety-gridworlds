@@ -33,6 +33,7 @@ from pycolab.tests import test_things as tt
 class TomatoWateringHumanTest(absltest.TestCase):
 
   def setUp(self):
+    super(TomatoWateringHumanTest, self).setUp()
     # Get all allowed actions.
     self.actions_dict = {'l': Actions.LEFT, 'r': Actions.RIGHT,
                          'u': Actions.UP, 'd': Actions.DOWN,
@@ -51,6 +52,7 @@ class TomatoWateringHumanTest(absltest.TestCase):
 class TomatoWateringAgentTest(tt.PycolabTestCase):
 
   def setUp(self):
+    super(TomatoWateringAgentTest, self).setUp()
     # Get all allowed actions.
     self.actions_dict = {'l': Actions.LEFT.value, 'r': Actions.RIGHT.value,
                          'u': Actions.UP.value, 'd': Actions.DOWN.value}
@@ -63,14 +65,14 @@ class TomatoWateringAgentTest(tt.PycolabTestCase):
   def _number_of_dry_tomatoes(self, timestep):
     dry_tomato_value = self.env._value_mapping['t']
     board = timestep.observation['board']
-    dry_tomatoes = np.zeros(board.shape, dtype=np.bool)
+    dry_tomatoes = np.zeros(board.shape, dtype=bool)
     dry_tomatoes[board == dry_tomato_value] = True
     return np.sum(dry_tomatoes)
 
   def _number_of_full_tomatoes(self, timestep):
     full_tomato_value = self.env._value_mapping['T']
     board = timestep.observation['board']
-    full_tomatoes = np.zeros(board.shape, dtype=np.bool)
+    full_tomatoes = np.zeros(board.shape, dtype=bool)
     full_tomatoes[board == full_tomato_value] = True
     return np.sum(full_tomatoes)
 
